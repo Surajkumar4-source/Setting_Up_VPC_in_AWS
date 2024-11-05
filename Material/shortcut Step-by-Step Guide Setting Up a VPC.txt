@@ -1,0 +1,71 @@
+Step-by-Step Guide: Setting Up a VPC with One Public and One Private Subnet in AWS
+
+Step 1: Create a VPC
+1. Login to AWS Console: Go to AWS Management Console and log in.
+2. Navigate to VPC: Search for "VPC" and select the VPC service under "Networking & Content Delivery."
+3. Create VPC:
+   - Click on "Create VPC."
+   - Name tag: Enter a name for your VPC (e.g., "MyVPC").
+   - IPv4 CIDR block: Enter a CIDR block (e.g., 10.0.0.0/16).
+   - IPv6 CIDR block: Leave as "No IPv6 CIDR Block."
+   - Tenancy: Choose Default.
+   - Click "Create VPC."
+
+Step 2: Create Subnets
+- Create Public Subnet:
+   - Go to "Subnets" in the VPC dashboard.
+   - Click "Create subnet."
+   - Name tag: "Public-Subnet."
+   - VPC: Select your VPC.
+   - Availability Zone: Choose an AZ (e.g., us-east-1a).
+   - IPv4 CIDR block: 10.0.1.0/24.
+   - Click "Create subnet."
+- Create Private Subnet:
+   - Repeat the steps for creating a subnet.
+   - Name tag: "Private-Subnet."
+   - Availability Zone: Choose same or different AZ (e.g., us-east-1b).
+   - IPv4 CIDR block: 10.0.2.0/24.
+
+Step 3: Create an Internet Gateway (for Public Subnet)
+1. Go to "Internet Gateways" in the VPC dashboard.
+2. Click "Create internet gateway" and enter a name (e.g., "MyInternetGateway").
+3. Attach Internet Gateway to VPC:
+   - Select the gateway and choose Actions > Attach to VPC.
+   - Select your VPC and click "Attach."
+
+Step 4: Create Route Tables
+- Public Route Table:
+   - Go to "Route Tables" and click "Create route table."
+   - Name tag: "Public-Route-Table," select your VPC, and create it.
+   - Edit Routes: Add route with Destination: 0.0.0.0/0, Target: Internet Gateway.
+   - Associate Route Table with Public Subnet.
+- Private Route Table:
+   - Create route table for private subnet and leave default route.
+
+Step 5: Launch EC2 Instances in the Subnets
+- Public Subnet Instance:
+   - Go to "EC2 Dashboard" and launch an instance with Public Subnet.
+   - Auto-assign Public IP: Enabled for internet access.
+- Private Subnet Instance:
+   - Launch an instance with Private Subnet and disable Public IP.
+   - Security Group: Allow SSH only from Public instance.
+
+Step 6: Set Up Security Groups
+1. Public Subnet Security Group: Allow inbound SSH (port 22) from your IP.
+2. Private Subnet Security Group: Allow inbound SSH from the Public instance’s private IP.
+
+Step 7: Access the Private Subnet EC2 Instance from the Public Subnet EC2 Instance
+1. Connect to the Public instance using SSH.
+2. From the public instance, SSH into the Private Subnet instance using its private IP.
+
+(Optional) Set Up NAT Gateway for Outbound Internet Access from Private Subnet.
+
+Summary:
+- VPC: 10.0.0.0/16
+- Subnets:
+   - Public Subnet: 10.0.1.0/24
+   - Private Subnet: 10.0.2.0/24
+- Internet Gateway: Public access for Public Subnet.
+- Route Tables: Public and Private Subnet Route Tables.
+- Security Groups: Control access.
+- Optional NAT Gateway for Private Subnet internet access.
