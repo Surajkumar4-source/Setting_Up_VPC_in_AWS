@@ -1,5 +1,5 @@
 
-# Step-by-Step Guide: Setting Up a VPC with One Public and One Private Subnet in AWS
+# Setting Up a VPC (Virtual Private Cloud) in AWS with One Public and One Private Subnet.
 ### Step 1: Create a VPC
 #### 1. Login to AWS Console: Go to AWS Management Console and log in.
 #### 2. Navigate to VPC: In the AWS Management Console, search for "VPC" and click on the VPC service under "Networking & Content Delivery."
@@ -144,7 +144,7 @@
 - SSH into the Private Subnet Instance:
 - From the public instance, SSH into the Private Subnet instance using its private IP:
   - Open a terminal or SSH client.
-  - Run the SSH command using the Public IP of the Public Subnet instance:
+  - Run the SSH command using the Private IP of the Private Subnet instance:
 ```bash
 ssh -i /path/to/your-key.pem ec2-user@<private-instance-private-ip>
 ```
@@ -153,7 +153,29 @@ ssh -i /path/to/your-key.pem ec2-user@<private-instance-private-ip>
 
 - As we have downloaded .PEM key file, so first convert to .PPK file 
      - USE PUTTY GEN  SOFTWARE TO CONVERT .PEM TO .PPK file
-     - Then copy the .PPK file from local machine to  Public Subnet EC2 Instance..  using using winscp software
+     - Then copy the .PPK file from local machine to  Public Subnet EC2 Instance..  using WINSCP software
+     - After Succesful connection, move .PEM key file to the public instance from local machine BY DRAG AND DROP
+     - Now we the .PEM key file in  Public Subnet EC2 Instance.
+     - Then change the .PEM key  file permission
+
+```bash
+chmod 400 PUBLIC_KEY.pem
+```
+   - Run the SSH command using the Private IP of the Private Subnet instance:
+
+```bash
+ssh -i  < .PEM file name >  < Private IP of the Private Subnet instance >
+```
+Eg. in my case:
+```bash
+ ubuntu@ip-172-20-1-231:~$  ls
+'PUBLIC_KEY.pem'
+ubuntu@ip-172-20-1-231:~$      chmod 400 PUBLIC_KEY.pem
+ubuntu@ip-172-20-1-231:~$      ssh -i  "PUBLIC_KEY.pem"  172.20.2.223
+```
+
+
+
 
     <br>
-### This setup provides a secure, two-subnet VPC configuration in AWS with a public and private subnet.
+### This setup provides a secure, VPC configuration in AWS 
