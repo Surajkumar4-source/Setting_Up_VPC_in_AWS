@@ -177,7 +177,7 @@ ubuntu@ip-172-20-1-231:~$      ssh -i  "PUBLIC_KEY.pem"  172.20.2.223
 
 
 
-    <br>
+  
 ### This setup provides a secure, VPC configuration in AWS 
 
 
