@@ -182,3 +182,92 @@ ubuntu@ip-172-20-1-231:~$      ssh -i  "PUBLIC_KEY.pem"  172.20.2.223
 
 
 
+
+<br>
+<br>
+
+
+
+
+
+## ------------------Screnshots--------------------
+1.
+<br>
+<br>
+
+
+![Alt text for image](screenshots/1.1.png.PNG)
+
+2.
+<br>
+<br>
+
+
+![Alt text for image](screenshots/1.2.png.PNG)
+
+
+<br>
+<br>
+
+3.
+<br>
+<br>
+
+
+![Alt text for image](screenshots/1.3.png.PNG)
+
+4.
+<br>
+<br>
+
+
+
+
+
+![Alt text for image](screenshots/1.4.png.PNG)
+
+
+
+
+5.
+<br>
+<br>
+
+
+![Alt text for image](screenshots/1.5.png.PNG)
+
+6.
+<br>
+<br>
+
+![Alt text for image](screenshots/1.6.png.png)
+
+7.
+<br>
+<br>
+
+
+![Alt text for image](screenshots/1.7.png.PNG)
+
+8.
+<br>
+<br>
+
+
+
+
+
+![Alt text for image](screenshots/1.8.png.PNG)
+
+9.
+<br>
+<br>
+
+
+![Alt text for image](screenshots/1.9.png.PNG)
+
+10.
+<br>
+<br>
+
+![Alt text for image](screenshots/1.10.png.PNG)
